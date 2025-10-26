@@ -1,0 +1,128 @@
+/* ---- Theme ---- */
+:root{
+  --bg:#f6f8fb;
+  --paper:#fff;
+  --ink:#1f2937;
+  --muted:#566070;
+  --line:#e6eef7;
+  --accent:#0f766e;
+}
+
+/* ---- Base ---- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  padding:28px 16px;
+}
+
+.cv{
+  max-width:1000px;
+  margin:0 auto;
+  background:var(--paper);
+  border-radius:14px;
+  box-shadow:0 8px 28px rgba(0,0,0,.06);
+  padding:28px;
+}
+
+h1{
+  margin:0 0 4px;
+  font-size:2rem;
+  color:var(--accent);
+  letter-spacing:.2px;
+}
+h2{
+  margin:22px 0 12px;
+  font-size:1.1rem;
+  border-bottom:2px solid var(--line);
+  padding-bottom:6px;
+}
+h3{
+  margin:0;
+  font-weight:500;
+  color:var(--muted);
+  font-size:1rem;
+}
+p{margin:.4rem 0}
+
+/* ---- Header block ---- */
+.head{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.contact{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 18px;
+  justify-content:space-between; /* spreads items on wide screens */
+  color:var(--muted);
+  font-size:.98rem;
+}
+.contact span{white-space:nowrap}
+
+/* ---- Flexbox ---- */
+.columns{
+  /* 3 columns */
+  display:flex;
+  gap:22px;
+  align-items:flex-start; /* keep baselines tidy */
+  justify-content:space-between;
+}
+.col{
+  background:linear-gradient(#fff,#fff) padding-box,
+             linear-gradient(180deg,#f3f7fd,transparent) border-box;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:16px;
+  flex:1 1 0;     /* let columns share space evenly */
+  min-width:0;    /* prevents overflow with long content */
+}
+
+.item{margin:10px 0}
+.item .meta{color:var(--muted); font-size:.95rem}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:8px;
+}
+.tag{
+  padding:6px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  font-size:.92rem;
+  color:var(--muted);
+}
+
+/* ---- Media queries (responsive behavior) ---- */
+@media (max-width: 900px){
+  /* change from 3 columns → 2 columns */
+  .columns{
+    flex-wrap:wrap;            /* allow wrapping into next line */
+    row-gap:22px;
+  }
+  .col{
+    flex:1 1 calc(50% - 12px); /* two per row */
+  }
+  .contact{justify-content:flex-start} /* stack alignment feels better here */
+}
+
+@media (max-width: 600px){
+  /* change from 2 columns → 1 column (clear mobile) */
+  .cv{padding:22px}
+  .col{flex:1 1 100%}
+  h1{font-size:1.6rem}
+  .contact{gap:6px 12px}
+}
+
+/* print-friendly tweaks (optional) */
+@media print{
+  body{background:#fff; padding:0}
+  .cv{box-shadow:none; border:none; border-radius:0}
+}
