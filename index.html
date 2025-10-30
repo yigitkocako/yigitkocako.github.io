@@ -17,6 +17,25 @@
     .badge-skill{ background:#1f6feb; }
     .avatar{ width:140px; height:140px; object-fit:cover; border-radius:50%; border:3px solid #1f6feb; }
     .section-title{ border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:.25rem; margin-bottom:1rem; }
+    /* --- High-contrast overrides --- */
+.card h3,
+.card .h5,
+.section-title {
+  color: #ffffff !important;   /* experience/project card titles & section headers */
+}
+
+.text-soft {
+  color: #d9dee6 !important;   /* a bit brighter body text */
+}
+
+/* Navbar links brighter */
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255,255,255,.9) !important;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #ffffff !important;
+}
+
   </style>
 
   <!-- Basic SEO -->
@@ -201,4 +220,5 @@
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 
